@@ -77,7 +77,6 @@ public class UserRestRService implements UserEndpoint {
 
   private void update(UserDTO dto, User model) {
     if (dto != null && model != null) {
-      // model.setGuid(dto.getGuid());
       model.setName(dto.getName());
       model.setEmail(dto.getEmail());
       model.setEnabled(dto.isEnabled());
