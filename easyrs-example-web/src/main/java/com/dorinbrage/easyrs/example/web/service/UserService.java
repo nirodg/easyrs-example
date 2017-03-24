@@ -35,15 +35,17 @@ public class UserService {
   }
 
   public User findById(String id) {
-    Query query = em.createNamedQuery("findAll");
-    query.setParameter("guid", id);
+    Query query = em.createNamedQuery("findById");
+    query.setParameter("id", id);
     return (User) query.getSingleResult();
   }
 
-  public User updateById(User model) {
+  @TransactionAttribute(TransactionAttributeType.REQUIRED)
+  public User update(User model) {
     return em.merge(model);
   }
 
+  @TransactionAttribute(TransactionAttributeType.REQUIRED)
   public boolean deleteById(String id) {
     try {
       em.remove(findById(id));

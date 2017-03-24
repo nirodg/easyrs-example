@@ -35,6 +35,7 @@ public class UserRestRService implements UserEndpoint {
   public UserDTO update(String id, UserDTO dto) {
     User user = service.findById(id);
     update(dto, user); // Update the entity based on the given dto
+    user = service.update(user);
     return map(user);
   }
 
@@ -76,7 +77,7 @@ public class UserRestRService implements UserEndpoint {
 
   private void update(UserDTO dto, User model) {
     if (dto != null && model != null) {
-      model.setGuid(dto.getGuid());
+      // model.setGuid(dto.getGuid());
       model.setName(dto.getName());
       model.setEmail(dto.getEmail());
       model.setEnabled(dto.isEnabled());
