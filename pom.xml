@@ -18,6 +18,14 @@
 		</repository>
 	</repositories>
 
+	<properties>
+		<easyrs.version>0.0.2-SNAPSHOT</easyrs.version>
+		<arg.resource.folder>-AresourceFolder=${project.basedir}/src/main/resources</arg.resource.folder>
+		<arg.test.resource.folder>-AresourceFolder=${project.basedir}/src/test/resources</arg.test.resource.folder>
+		<arg.default.resource.folder>-AresourceFolder=${project.build.directory}</arg.default.resource.folder>
+	</properties>
+
+
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
@@ -26,6 +34,7 @@
 				<version>7.0</version>
 				<scope>provided</scope>
 			</dependency>
+			<!-- Resteasy -->
 			<dependency>
 				<groupId>org.jboss.resteasy</groupId>
 				<artifactId>resteasy-jaxrs</artifactId>
@@ -42,12 +51,20 @@
 				<artifactId>resteasy-json-p-provider</artifactId>
 				<version>3.0.6.Final</version>
 			</dependency>
+			<!-- Lombok -->
 			<dependency>
 				<groupId>org.projectlombok</groupId>
 				<artifactId>lombok</artifactId>
 				<version>1.16.16</version>
 				<scope>provided</scope>
 			</dependency>
+			<!-- EasyRS -->
+			<dependency>
+				<groupId>com.dorinbrage</groupId>
+				<artifactId>easyrs</artifactId>
+				<version>${easyrs.version}</version>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
+	
 </project>
